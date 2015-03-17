@@ -4,12 +4,16 @@
 1.- Probar el funcionamiento de la copia de archivos por ssh.
 
 	 Para comprobar el correcto funcionamiento de la copia de archivos de un 
-	 servidor a otro a través del comando ssh, se ha realizado lo siguiente:
+	 servidor a otro a través del comando ssh se ha realizado lo siguiente:
 	 
 	 tar czf - directorio | ssh 192.168.54.131 'cat > ~/tar.tgz'
 	 
-	 Directorio, indica que queremos comprimir para enviar por ssh. En nuestro
+	 Directorio -> indica que carpeta queremos comprimir para enviar por ssh. En nuestro
 	 caso, lo que queremos enviar es la carpeta www, por lo que hacemos lo siguiente:
+	 
+	 Para situarnos en el directorio deseado:
+	 
+	 cd /var 
 	 
 	 tar czf - www | ssh 192.168.54.131 'cat > ~/tar.tgz'
 
@@ -29,7 +33,7 @@
 	 
 	 En mi caso, no he conseguido realizar la copia con el usuario root, por lo que la forma
 	 de solucionar este problema ha sido hacer mi usuario 'ramon' como propietario de dicho 
-	 directorio (/var/www) de este modo, este usuario tenía todos los permisos necesarios. 
+	 directorio (/var/www) de este modo, este usuario tiene todos los permisos necesarios. 
 	 Para cambiar el propietario de un directorio, debemos ejecutar la siguiente orden:
 	 
 	 Nos dirigimos al directorio:
@@ -69,7 +73,8 @@
 	 0 *  * * * ramon rsync -avz -e ssh ramon@192.168.54.130:/var/www /var/
 	 
 	 De este modo, se realiza una copia del directorio /var/www de la máquina 1 al directorio
-	 /var/ de la máquina 2, cada hora. En mi caso, el usuario que tiene permisos para ejecutar
-	 este comando, es el usuario ramon, en lugar del usuario root.
+	 /var/ de la máquina 2 en el minuto 0, de cada hora, de cada día de la semana y de cada mes. 
+	 En mi caso, el usuario que tiene permisos para ejecutar este comando, es el usuario ramon, 
+	 en lugar del usuario root.
 	 
 	 
