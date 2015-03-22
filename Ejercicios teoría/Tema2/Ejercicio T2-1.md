@@ -92,13 +92,69 @@ a una hora programada.
 **JMeter:** con esta herramienta podemos realizar pruebas de carga en los servidores de correo.
 
 
+##Ejercicio 4
 
+#Buscar ejemplos de balanceadores software y hardware (productos comerciales).
+
+**Balanceadores hardware**
+
+*LM-2600:* es un balanceador de carga diseñado para cargas de trabajo en crecimiento.
+
+*F5 Networks Big/IP:* es uno de los productos de balanceo de carga más conocidos del mercado.
+
+**Balanceadores software:**
+
+*Kemp:* permite balanceo de carga virtual, hardware y nube.
+
+*HAProxy:* software libre que actúa como balanceador de carga ofreciendo alta disponibilidad y balanceo
+de carga para comunicaciones TCP y HTTP.
+
+#Buscar productos comerciales para servidores de aplicaciones.
+
+BEA WebLogic
+
+IBM WebSphere
+
+Sun-Netscape IPlanet
+
+Sun One
+
+Oracle IAS
+
+Borland AppServer
+
+HP Bluestone
+
+#Buscar productos comerciales para servidores de almacenamiento.
+
+ThinkServer RS140 - lenovo
+
+Qnap Servidor Nas TS-453 Pro
+
+Servidores PowerEdge - dell
+
+IBM System Storage 
 
 ##Bibliografía
 
 http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks
+
 http://codehero.co/como-hacer-pruebas-de-carga-servidores-web/
+
 http://www.pymesyautonomos.com/tecnologia/en-los-servidores-debemos-provocar-estres
+
 http://www.gurudelainformatica.es/2008/04/stress-test-servicios-de-red.html
+
 http://unadocenade.com/una-docena-de-herramientas-para-probar-y-mejorar-el-rendimiento-de-nuestra-web/
 
+http://kemptechnologies.com/es/
+
+https://unpocodejava.wordpress.com/2013/07/03/que-es-un-balanceador-de-carga-que-es-haproxy/
+
+http://www.ecured.cu/index.php/Servidor_de_Aplicaciones
+
+http://shop.lenovo.com/es/es/servers/
+
+http://www.macnificos.com/product.aspx?p=9528&gclid=CLjkwvr6vMQCFYLItAodHl8ARA
+
+http://www-03.ibm.com/systems/es/storage/
