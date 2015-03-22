@@ -68,3 +68,37 @@ establecer un equilibrio entre consistencia y funcionalidad.
 *Mason:* framework de **perl** para hacer aplicaciones web que sirvan contenido dinámico.
 
 *Agavi:* framework de **php** que permite realizar aplicaciones web. Permite una alta escalabilidad.
+
+##Ejercicio 3
+
+#¿Cómo analizar el nivel de carga de cada uno de los subsistemas en el servidor? Buscar herramientas y aprender a usarlas.
+
+Herramientas de prueba de carga HTTP:
+
+**ApacheBench.**
+
+**Siege:** herramienta utilizada por desarrolladores para realización de pruebas de carga.
+
+**Nsasoft Network Traffic Emulator:** puede generar tráfico IP/ICMP/TCP/UDP. Aunque su uso más
+indicado es para routers y firewalls, también puede ser usado para testear servidores.
+
+**WebServer Stress Tool:** es una herramienta para simular altas cargas de trabajo en un servidor web.
+
+**Hammerhead2:** es una herramienta de prueba de carga que puede generar múltiples conexiones y usuarios
+a una hora programada.
+
+**Hammerora:** es una herramienta de generación de carga para la base de datos de Oracle.
+
+**JMeter:** con esta herramienta podemos realizar pruebas de carga en los servidores de correo.
+
+
+
+
+##Bibliografía
+
+http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks
+http://codehero.co/como-hacer-pruebas-de-carga-servidores-web/
+http://www.pymesyautonomos.com/tecnologia/en-los-servidores-debemos-provocar-estres
+http://www.gurudelainformatica.es/2008/04/stress-test-servicios-de-red.html
+http://unadocenade.com/una-docena-de-herramientas-para-probar-y-mejorar-el-rendimiento-de-nuestra-web/
+
