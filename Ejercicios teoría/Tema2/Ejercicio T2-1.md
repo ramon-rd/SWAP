@@ -49,3 +49,23 @@ disponibilidad_isp3: 99.75%+(1-99.75%)*95% = 99.6625%
 Por lo que, la disponibilidad del servidor con dos réplicas de cada elemento es:
 
 As = 99.6625% * 99.9% * 99.9999% * 99.9992% * 99.6625% * 99.9999% * 99.9999% 99.6625% = **98.89%**
+
+##Ejercicio 2
+
+#Buscar frameworks y librerías para diferentes lenguajes que permitan hacer
+#aplicaciones altamente disponibles con relativa facilidad.
+
+*Kendo UI:* es una librería de **javascript** para el desarrollo de aplicaciones web
+enriquecidas del lado del cliente.
+
+*AngularJS:* es un framework de **javascript**, que permite crear aplicaciones SPA.
+
+*CppCMS:* es un framework de **C++** cuyo objetivo es el de construir aplicaciones web
+de alto rendimiento.
+
+*Grails:* framework de **java** que ha sido diseñado para desarrollar aplicaciones web. Intenta
+establecer un equilibrio entre consistencia y funcionalidad.
+
+*Mason:* framework de **perl** para hacer aplicaciones web que sirvan contenido dinámico.
+
+*Agavi:* framework de **php** que permite realizar aplicaciones web. Permite una alta escalabilidad.
