@@ -52,8 +52,7 @@ As = 99.6625% * 99.9% * 99.9999% * 99.9992% * 99.6625% * 99.9999% * 99.9999% 99.
 
 ##Ejercicio 2
 
-#Buscar frameworks y librerías para diferentes lenguajes que permitan hacer
-#aplicaciones altamente disponibles con relativa facilidad.
+#Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.
 
 *Kendo UI:* es una librería de **javascript** para el desarrollo de aplicaciones web
 enriquecidas del lado del cliente.
