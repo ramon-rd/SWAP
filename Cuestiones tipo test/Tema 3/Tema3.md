@@ -11,7 +11,7 @@ c) La y la b son correctas.
 
 d) Todas las respuestas son incorrectas.
 
-**Respuesta correcta: b*
+**Respuesta correcta: b**
 
 
 2.- Front-rail y back-rail. ¿Cuál de las siguientes afirmaciones es correcta?
