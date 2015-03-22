@@ -1,4 +1,4 @@
-#PREGUNTAS TIPO TEST TEMA 1
+                                      TEMA 1
 
 1.- ¿Por qué no es recomendable usar una sola máquina para montar un servidor web?
 
