@@ -24,7 +24,7 @@ Y por fin, podemos instalar **nginx**
 *apt-get update*
 *apt-get install nginx*
 
-![Instalacion nginx](/home/ramon/capturasSWAP/p3-1.png?raw=true)
+![Instalacion nginx](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%203/imagenes/p3-1.png)
 
 Debemos cambiar la configuración por defecto de nginx, para hacer esto debemos modificar el siguiente fichero
 de configuración:
@@ -34,7 +34,7 @@ de configuración:
 En este fichero debemos indicar qué máquinas formarán nuestro cluster web y en qué puertos está a la escucha
 el servidor web.
 
-![Nginx configuracion](/home/ramon/capturasSWAP/P3-7.png)
+![Nginx configuracion](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%203/imagenes/P3-7.png)
 
 En el ejemplo de la captura anterior se ha usado balanceo de carga usando el algoritmo de round-robin donde la 
 máquina 1 tiene el doble de capacidad que la máquina 2. Una vez configurado, si queremos lanzar el balanceador nginx debemos hacer:
@@ -48,7 +48,7 @@ En la siguiente captura de pantalla podemos comprobar que todo ha ido bien.
 Para poder distinguir de una máquina a otra, la máquina servidora 1 muestra el mensaje *Esto funciona 1* y la máquina servidora 2 
 muestra el mensaje *Esto funciona 2*.
 
-![Prueba curl1](/home/ramon/capturasSWAP/nginxMaquina1DoblePotente.png)
+![Prueba curl1](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%203/imagenes/nginxMaquina1DoblePotente.png)
 
 ##Configurar una máquina e instalar haproxy como balanceador de carga.
 
@@ -74,7 +74,7 @@ En este caso es necesario destacar que la configuarción no es la misma que con 
 que la máquina 1 *cargue* con el doble de trabajo respecto a la segunda máquina debemos indicarlo como se muestra en la siguiente captura
 de pantalla:
 
-![Captura RoundRobin](/home/ramon/capturasSWAP/roundrobinHaproxy.png)
+![Captura RoundRobin](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%203/imagenes/roundrobinHaproxy.png)
 
 Si todo ha salido bien, lanzamos el servicio haproxy:
 
@@ -88,8 +88,8 @@ ejecutandose. Para solucionar este problema hice lo siguiente:
 El comando anterior es para buscar si existe algún proceso con dicho nombre y a continuación, como podemos observar
 en la captura de pantalla, detenemos la ejecución de nginx:
 
-![Error nginx](/home/ramon/capturasSWAP/P3-9.png)
+![Error nginx](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%203/imagenes/P3-9.png)
 
 Ahora volvemos a lanzar el servicio haproxy y comprobamos el funcionamiento de haproxy utilizando el comando **curl**. 
 
-![Prueba curl2](/home/ramon/capturasSWAP/pruebaRoundRobinHaproxy.png)
+![Prueba curl2](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%203/imagenes/pruebaRoundRobinHaproxy.png)
