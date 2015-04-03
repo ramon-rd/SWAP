@@ -24,7 +24,7 @@ Y por fin, podemos instalar **nginx**
 *apt-get update*
 *apt-get install nginx*
 
-![Instalacion nginx](/home/ramon/capturasSWAP/p3-1.png)
+![Instalacion nginx](/home/ramon/capturasSWAP/p3-1.png?raw=true)
 
 Debemos cambiar la configuración por defecto de nginx, para hacer esto debemos modificar el siguiente fichero
 de configuración:
