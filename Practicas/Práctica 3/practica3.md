@@ -1,4 +1,4 @@
-#PRACTICA 3: BALANCEO DE CARGA
+#PRÁCTICA 3: BALANCEO DE CARGA
 
 ##Configurar una máquina e instalar nginx como balanceador de carga.
 
