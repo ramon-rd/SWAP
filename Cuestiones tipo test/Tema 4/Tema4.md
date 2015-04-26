@@ -1,6 +1,6 @@
 #Tema 4
 
-1.- Respecto a los algoritmos de balanceo de carga. ¿Cuándo usaremos algoritmos estáticos?
+**1.- Respecto a los algoritmos de balanceo de carga. ¿Cuándo usaremos algoritmos estáticos?**
 
 a) Cuando las máquinas son heterogéneas y queremos servir contenido estático.
 
@@ -12,7 +12,7 @@ d) Todas las opciones son incorrectas.
 
 **Respuesta correcta: c**
 
-2.- En cual de los siguientes casos sería aconsejable utilizar el algoritmo de balanceo basado en turnos (round-robin).
+**2.- En cual de los siguientes casos sería aconsejable utilizar el algoritmo de balanceo basado en turnos (round-robin).**
 
 a) Cuando el número de conexiones no es un buen indicador.
 
@@ -24,7 +24,7 @@ d) Las opciones b y c son correctas.
 
 **Respuesta correcta: b**
 
-3.- ¿Cuál de las siguientes afirmaciones sobre balanceo de carga global basado en DNS es incorrecta?
+**3.- ¿Cuál de las siguientes afirmaciones sobre balanceo de carga global basado en DNS es incorrecta?**
 
 a) La información geográfica es el mejor criterio para realizar balanceo de carga global.
 
