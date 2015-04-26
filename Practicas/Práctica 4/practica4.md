@@ -119,7 +119,6 @@ que el cliente esperará al servidor. Si este tiempo se cumple, httperf nos lanz
 
 
 |	Test		  |	Duración de la prueba  |		Total errores  |    	Tasa solicitud	 |	
-|				    |			(segundos)	       |				           |				        			 |
 |:---------:|:----------------------:|:-----------------:|:---------------------:|
 |		1	      |	  		100.024	     	   |		  	0			     |			  999.8				   |
 |		2		    |    		100.01		    	 |	   		0			     |		  	999.9				   |
@@ -139,7 +138,6 @@ que el cliente esperará al servidor. Si este tiempo se cumple, httperf nos lanz
 
 
 |	Test		  |	Duración de la prueba  |		Total errores  |	   Tasa solicitud		 |	
-|				    |			(segundos)	       |				      	   |				 				       |
 |:---------:|:----------------------:|:-----------------:|:---------------------:|
 |		1	      |	  		104.16		       |	  		3219			 |			655.3			    	 |
 |		2		    |    		104.88			     |	  		3649			 |			610.6		    		 |
@@ -158,7 +156,6 @@ que el cliente esperará al servidor. Si este tiempo se cumple, httperf nos lanz
 *httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 |	Test		  |	Duración de la prueba  |		Total errores  |	   Tasa solicitud		 |	
-|				    |			(segundos)  	     |				      	   |				 				       |
 |:---------:|:----------------------:|:-----------------:|:---------------------:|
 |		1	      |	  		100.054	         |	  		0			  	 |		  	999.5		   		 |
 |		2		    |    		100.076			     |	  		0				   |	  		999.2		  		 |
@@ -203,7 +200,6 @@ El número de clientes que se simularán, en nuestro caso, 10 clientes.
 *openload 192.168.54.130/index.html 10*
 
 | Test		  | Peticiones completadas|Promedio tiempo resp|
-|				    |		(segundos)    			|							       |  
 |:---------:|:---------------------:|:------------------:|
 |		1		    | 			1152.04	    		|	    	0.008				 |
 |		2		    | 			1164.86	    		|	    	0.008				 |
@@ -222,7 +218,6 @@ El número de clientes que se simularán, en nuestro caso, 10 clientes.
 *openload 192.168.54.135/index.html 10*
 
 | Test		  | Peticiones completadas|Promedio tiempo resp|
-|			    	|		(segundos)    			|				  		     	 |
 |:---------:|:---------------------:|:------------------:|
 |		1	    	|	  		496.45		    	|	    	0.002				 |
 |		2	    	|	  		213.34	    		|	    	0.046				 |
@@ -240,7 +235,6 @@ El número de clientes que se simularán, en nuestro caso, 10 clientes.
 *openload 192.168.54.135/index.html 10*
 
 | Test		  | Peticiones completadas|Promedio tiempo resp|
-|				    |		(segundos)			    |							       |
 |:---------:|:---------------------:|:------------------:|
 |		1		    |	  		413.67	    		|	    	0.023				 |
 |		2		    |	  		556.01    			|	     	0.017				 |
@@ -286,7 +280,6 @@ v: indicamos que queremos que nos muestre por pantalla cada petición.
 *siege -c100 -d10 -r1 -v http://192.168.54.130/index.html*
 
 | Test  		| Tiempo transcurrido 	| Tiempo respuesta 	 | Errores	 |
-|			 	    |		(segundos)    			|     						 	 |	   			 |
 |:---------:|:---------------------:|:------------------:|:---------:|
 |		  1		  |				  10.08		    	|	  		0.01	  		 |	 	0	  	 | 
 |		  2 		|			  	10.08		    	|	  		0.01	  		 | 		0		   |
@@ -305,7 +298,6 @@ v: indicamos que queremos que nos muestre por pantalla cada petición.
 *siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
 
 | Test		  | Tiempo transcurrid  	| Tiempo respuesta 	 | Errores	 |
-|			    	|		(segundos)	    		|	        					 |		   		 |
 |:---------:|:---------------------:|:------------------:|:---------:|
 |		1   		|		  		10.09   			| 			0.02  			 |	  	0 	 |	
 |		2   		|	  			10.1	    		| 			0.02	  		 |	  	0	   |
@@ -323,7 +315,6 @@ v: indicamos que queremos que nos muestre por pantalla cada petición.
 *siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
 
 | Test	  	| Tiempo transcurrido	  | Tiempo respuesta 	| Errores	  |
-|			    	|		(segundos)  			  |							      |		  		  |
 |:---------:|:---------------------:|:-----------------:|:---------:|
 |		1	    	|	  		10.07   				|			0.01    			| 		0 		|
 |		2	    	|	  		10.09		    		|			0.02	    		| 		0	  	|
