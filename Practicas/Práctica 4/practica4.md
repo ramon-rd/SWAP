@@ -3,7 +3,9 @@
 En esta práctica haremos uso de tres herramientas diferentes para comprobar el rendimiento de nuestro
 servidor web, estas herramientas son:
 
--Apache Httperf
+-Apache Benchmark
+
+-Httperf
 
 -Openload
 
