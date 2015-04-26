@@ -4,7 +4,9 @@ En esta práctica haremos uso de tres herramientas diferentes para comprobar el 
 servidor web, estas herramientas son:
 
 -Apache Benchmark
+
 -Httperf
+
 -Openload
 
 Para cada una de estas herramientas realizaremos las siguientes pruebas:
@@ -13,8 +15,11 @@ Prueba de rendimiento a una sola máquina (la primera, por ejemplo)
 Prueba de rendimiento a nuestra granja web (con el balanceador nginx)
 Prueba de rendimiento a nuestra granja web (con el balanceador haproxy)
 
-Para cada una de las pruebas, realizaremos 10 test, con el objetivo de calcular la media y la desviación 
-estandar de los resultados obtenidos.
+Para cada una de las pruebas, realizaremos 10 test, y solicitaremos un pequeño archivo html que devuelve el siguiente mensaje:
+
+*Esto es una prueba*
+
+El objetivo, calcular la media y la desviación estándar de los resultados obtenidos, para conocer cual de los tres servidores resuelve un mayor número de peticiones con el menor número de errores posible.
 
 ##Apache Benchmark
 
@@ -104,11 +109,15 @@ apartado anterior. Para ello:
 Una vez que lo hemos instalado, lanzamos los test hacia la primera máquina, a la granja web usando como balanceador
 **nginx** y utilizando **haproxy**. Para ello:
 
-*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
+
+La orden anterior realiza una serie de peticiones a la dirección ip indicada con puerto 80. Esta orden llamará a la página index.html
+hasta alcanzar un total de 10000 peticiones, realizando 100 peticiones por segundo. El último parámetro (timeout) indica el tiempo en segundos
+que el cliente esperará al servidor. Si este tiempo se cumple, httperf nos lanza un error, indicando que la llamada habrá fallado.
 
 **Prueba de rendimiento a la primera máquina**
 
-*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 
 |	Test		|	Duración de la prueba |		Total errores  |    	Tasa solicitud		|	
@@ -128,7 +137,7 @@ Una vez que lo hemos instalado, lanzamos los test hacia la primera máquina, a l
 
 **Prueba de rendimiento a la granaja web (usando balanceador nginx)**
 
-*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 
 |	Test		|	Duración de la prueba |		Total errores  |	   Tasa solicitud		|	
@@ -148,7 +157,7 @@ Una vez que lo hemos instalado, lanzamos los test hacia la primera máquina, a l
 
 **Prueba de rendimiento a la granja web (usando balanceador haproxy)**
 
-*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 |	Test		|	Duración de la prueba |		Total errores 	|	   Tasa solicitud		|	
 |				|			(segundos)	    |				      	|				 				|
@@ -185,6 +194,11 @@ instalar esta herramienta haremos lo siguiente:
 Una vez instalada la herramienta, la ejecutaremos escribiendo la siguiente orden (para la máquina 1):
 
 *openload 192.168.54.130/index.html 10*
+
+Esta herramienta es más sencilla de utilizar, solo recibe dos parámetros:
+
+URL de la página del servidor a la que queremos realizar el test.
+El número de clientes que se simularán, en nuestro caso, 10 clientes.
 
 **Prueba de rendimiento a la primera máquina**
 
