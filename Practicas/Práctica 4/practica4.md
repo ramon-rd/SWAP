@@ -3,9 +3,7 @@
 En esta práctica haremos uso de tres herramientas diferentes para comprobar el rendimiento de nuestro
 servidor web, estas herramientas son:
 
--Apache Benchmark
-
--Httperf
+-Apache Httperf
 
 -Openload
 
@@ -241,7 +239,7 @@ El número de clientes que se simularán, en nuestro caso, 10 clientes.
 
 *openload 192.168.54.135/index.html 10*
 
-| Test		| Peticiones completadas|Promedio tiempo rep |
+| Test		| Peticiones completadas|Promedio tiempo resp|
 |				|		(segundos)			|							|
 |:---------:|:---------------------:|:------------------:|
 |		1		|			413.67			|		0.023				|
@@ -253,7 +251,7 @@ El número de clientes que se simularán, en nuestro caso, 10 clientes.
 |		7		|			540.48			|		0.018				|
 |		8		|			566.91			|		0.017				|
 |		9		|			576.54			|		0.017				|
-|		10		|			285.92			|		0.035
+|		10		|			285.92			|		0.035				|
 
 ![Captura Media peticiones completadas](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-mediatotaltps.png)
 ![Captura Desviación peticiones completadas](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-desviaciontotaltps.png)
@@ -266,3 +264,84 @@ Por último, el menor valor en la desviación de las peticiones completadas, vue
 ![Captura Media tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-mediatiempores.png)
 ![Captura Desviación tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-desviaciontiempores.png)
 
+##Parte optativa: siege
+
+Como parte optativa, voy a instalar la herramienta siege en ubuntu-server, realizaré las mismas pruebas que en los apartados anteriores. Para ello:
+
+*sudo apt-get install siege*
+
+Una vez que lo hemos instalado, la orden para ejecutarlo es:
+
+*siege -c100 -d10 -r1 -v http://192.168.54.130/index.html*
+
+Donde:
+
+c100: es el número de usuarios concurrentes que van a simular las peticiones.
+r1: es el número de repeticiones de la prueba.
+d10: es el tiempo existente entre las peticiones de cada usuario.
+v: indicamos que queremos que nos muestre por pantalla cada petición.
+
+**Prueba de rendimiento al servidor 1**
+
+*siege -c100 -d10 -r1 -v http://192.168.54.130/index.html*
+
+| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
+|				|		(segundos)			|							|				|
+|:---------:|:---------------------:|:------------------:|:---------:|
+|		1		|				10.08			|			0.01			|		0		|
+|		2		|				10.08			|			0.01			|		0		|
+|		3		|				10.06			|			0.01			|		0		|
+|		4		|				10.09			|			0.01			|		0		|
+|		5		|				10.07			|			0.01			|		0		|
+|		6		|				10.05			|			0.01			|		0		|
+|		7		|				10.08			|			0.01			|		0		|
+|		8		|				10.08			|			0.01			|		0		|
+|		9		|				10.07			|			0.01			|		0		|
+|		10		|				10.07			|			0.01			|		0		|
+
+
+**Prueba de rendimiento a la granja web (usando nginx)**
+
+*siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
+
+| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
+|				|		(segundos)			|							|				|
+|:---------:|:---------------------:|:------------------:|:---------:|
+|		1		|				10.09			|			0.02			|		0		|	
+|		2		|				10.1			|			0.02			|		0		|
+|		3		|				10.09			|			0.02			|		0		|
+|		4		|				10.08			|			0.02			|		0		|
+|		5		|				10.08			|			0.02			|		0		|
+|		6		|				10.08			|			0.02			|		0		|
+|		7		|				10.07			|			0.02			|		0		|
+|		8		|				10.02			|			0.02			|		0		|
+|		9		|				10.06			|			0.01			|		0		|
+|		10		|				10.06			|			0.01			|		0		|
+
+**Prueba de rendimiento a la granja web (usando haproxy)**
+
+*siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
+
+| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
+|				|		(segundos)			|							|				|
+|:---------:|:---------------------:|:------------------:|:---------:|
+|		1		|			10.07				|			0.01			|		0		|
+|		2		|			10.09				|			0.02			|		0		|
+|		3		|			10.1				|		   0.02			|		0		|
+|		4		|			10.06				|			0.02			|		0		|
+|		5		|			10.12				|			0.01			|		0		|
+|		6		|			10.09				|			0.02  		|		0		|
+|		7		|			10.09				|			0.02			|		0		|
+|		8		|			10.08 			|			0.02			|		0		|
+|		9		|			10.08				|			0.02			|		0		|
+|		10		|			10.05				|			0.02			|		0		|
+
+![Captura Media Tiempo transcurrido](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-mediatiempotrans.png)
+![Captura Desviación Tiempo transcurrido](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-desviaciontiempotrans.png)
+
+Como podemos comprobar, ocurre igual que con los experimentos realizados con Apache Benchmark y OpenWebLoad. En media, el tiempo transcurrido y el tiempo de respuesta a las peticiones, es menor en el servidor 1, seguido de *nginx* y *haproxy*. En cuanto a la desviación, está claro que vuelve a ganar el servidor 1, siendo su desviación, en el tiempo de respuesta, igual a 0. Esto quiere decir que es el resultado más fiable que podríamos esperar.
+
+En resumen, según la herramienta siege, el servidor 1 es capaz de resolver un número determinado de peticiones en el menor número de tiempo (respecto a nginx y haproxy).
+
+![Captura Media Tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-mediatiempores.png)
+![Captura Desviación Tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-desviaciontiempotrans.png)

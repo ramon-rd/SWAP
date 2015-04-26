@@ -3,8 +3,8 @@
 En esta práctica haremos uso de tres herramientas diferentes para comprobar el rendimiento de nuestro
 servidor web, estas herramientas son:
 
--Apache Benchmark
--Httperf
+-Apache Httperf
+
 -Openload
 
 Para cada una de estas herramientas realizaremos las siguientes pruebas:
@@ -13,8 +13,11 @@ Prueba de rendimiento a una sola máquina (la primera, por ejemplo)
 Prueba de rendimiento a nuestra granja web (con el balanceador nginx)
 Prueba de rendimiento a nuestra granja web (con el balanceador haproxy)
 
-Para cada una de las pruebas, realizaremos 10 test, con el objetivo de calcular la media y la desviación 
-estandar de los resultados obtenidos.
+Para cada una de las pruebas, realizaremos 10 test, y solicitaremos un pequeño archivo html que devuelve el siguiente mensaje:
+
+*Esto es una prueba*
+
+El objetivo, calcular la media y la desviación estándar de los resultados obtenidos, para conocer cual de los tres servidores resuelve un mayor número de peticiones con el menor número de errores posible.
 
 ##Apache Benchmark
 
@@ -104,11 +107,15 @@ apartado anterior. Para ello:
 Una vez que lo hemos instalado, lanzamos los test hacia la primera máquina, a la granja web usando como balanceador
 **nginx** y utilizando **haproxy**. Para ello:
 
-*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
+
+La orden anterior realiza una serie de peticiones a la dirección ip indicada con puerto 80. Esta orden llamará a la página index.html
+hasta alcanzar un total de 10000 peticiones, realizando 100 peticiones por segundo. El último parámetro (timeout) indica el tiempo en segundos
+que el cliente esperará al servidor. Si este tiempo se cumple, httperf nos lanza un error, indicando que la llamada habrá fallado.
 
 **Prueba de rendimiento a la primera máquina**
 
-*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 
 |	Test		|	Duración de la prueba |		Total errores  |    	Tasa solicitud		|	
@@ -128,7 +135,7 @@ Una vez que lo hemos instalado, lanzamos los test hacia la primera máquina, a l
 
 **Prueba de rendimiento a la granaja web (usando balanceador nginx)**
 
-*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 
 |	Test		|	Duración de la prueba |		Total errores  |	   Tasa solicitud		|	
@@ -148,7 +155,7 @@ Una vez que lo hemos instalado, lanzamos los test hacia la primera máquina, a l
 
 **Prueba de rendimiento a la granja web (usando balanceador haproxy)**
 
-*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 1 --timeout 5*
+*httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 |	Test		|	Duración de la prueba |		Total errores 	|	   Tasa solicitud		|	
 |				|			(segundos)	    |				      	|				 				|
@@ -168,7 +175,7 @@ Una vez que lo hemos instalado, lanzamos los test hacia la primera máquina, a l
 ![Captura Media Duración Prueba](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/HTTP-mediaduracionprueba.png)
 ![Captura Desviación Duración Prueba](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/HTTP-desviacionduracionprueba.png)
 
-Si prestamos atención a la duración de la prueba en las diferentes pruebas que hemos realizado, podremos comprobar que la granja web usando el balanceador *nginx* es la que más tarda, mientras que *haproxy* y el servidor 1 tienen, en media, prácticamente la misma duración de la prueba.
+Si prestamos atención a la duración de la prueba en los diferentes tests que hemos realizado, podremos comprobar que la granja web usando el balanceador *nginx* es el que más tarda, mientras que *haproxy* y el servidor 1 tienen, en media, prácticamente la misma duración de la prueba.
 Además, el balanceador que utiliza *nginx* es el que nos da un mayor número de errores, por lo que atendiendo al número de errores, a la tasa 
 de solicitud y la duración de la prueba, el balanceador que atiende un mayor número de peticiones es *haproxy*, sin embargo, el servidor 1 resuelve un mayor número de peticiones que *nginx*.
 
@@ -185,6 +192,11 @@ instalar esta herramienta haremos lo siguiente:
 Una vez instalada la herramienta, la ejecutaremos escribiendo la siguiente orden (para la máquina 1):
 
 *openload 192.168.54.130/index.html 10*
+
+Esta herramienta es más sencilla de utilizar, solo recibe dos parámetros:
+
+URL de la página del servidor a la que queremos realizar el test.
+El número de clientes que se simularán, en nuestro caso, 10 clientes.
 
 **Prueba de rendimiento a la primera máquina**
 
@@ -227,7 +239,7 @@ Una vez instalada la herramienta, la ejecutaremos escribiendo la siguiente orden
 
 *openload 192.168.54.135/index.html 10*
 
-| Test		| Peticiones completadas|Promedio tiempo rep |
+| Test		| Peticiones completadas|Promedio tiempo resp|
 |				|		(segundos)			|							|
 |:---------:|:---------------------:|:------------------:|
 |		1		|			413.67			|		0.023				|
@@ -239,7 +251,7 @@ Una vez instalada la herramienta, la ejecutaremos escribiendo la siguiente orden
 |		7		|			540.48			|		0.018				|
 |		8		|			566.91			|		0.017				|
 |		9		|			576.54			|		0.017				|
-|		10		|			285.92			|		0.035
+|		10		|			285.92			|		0.035				|
 
 ![Captura Media peticiones completadas](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-mediatotaltps.png)
 ![Captura Desviación peticiones completadas](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-desviaciontotaltps.png)
@@ -252,3 +264,80 @@ Por último, el menor valor en la desviación de las peticiones completadas, vue
 ![Captura Media tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-mediatiempores.png)
 ![Captura Desviación tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-desviaciontiempores.png)
 
+##Parte optativa: siege
+
+Como parte optativa, voy a instalar la herramienta siege en ubuntu-server, realizaré las mismas pruebas que en los apartados anteriores. Para ello:
+
+*sudo apt-get install siege*
+
+Una vez que lo hemos instalado, la orden para ejecutarlo es:
+
+*siege -c100 -d10 -r1 -v http://192.168.54.130/index.html*
+
+Donde:
+
+c100: es el número de usuarios concurrentes que van a simular las peticiones.
+r1: es el número de repeticiones de la prueba.
+d10: es el tiempo existente entre las peticiones de cada usuario.
+v: indicamos que queremos que nos muestre por pantalla cada petición.
+
+**Prueba de rendimiento al servidor 1**
+
+*siege -c100 -d10 -r1 -v http://192.168.54.130/index.html*
+
+| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
+|				|		(segundos)			|							|				|
+|:---------:|:---------------------:|:------------------:|:---------:|
+|		1		|				10.08			|			0.01			|		0		|
+|		2		|				10.08			|			0.01			|		0		|
+|		3		|				10.06			|			0.01			|		0		|
+|		4		|				10.09			|			0.01			|		0		|
+|		5		|				10.07			|			0.01			|		0		|
+|		6		|				10.05			|			0.01			|		0		|
+|		7		|				10.08			|			0.01			|		0		|
+|		8		|				10.08			|			0.01			|		0		|
+|		9		|				10.07			|			0.01			|		0		|
+|		10		|				10.07			|			0.01			|		0		|
+
+
+**Prueba de rendimiento a la granja web (usando nginx)**
+
+*siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
+
+| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
+|				|		(segundos)			|							|				|
+|:---------:|:---------------------:|:------------------:|:---------:|
+|		1		|				10.09			|			0.02			|		0		|	
+|		2		|				10.1			|			0.02			|		0		|
+|		3		|				10.09			|			0.02			|		0		|
+|		4		|				10.08			|			0.02			|		0		|
+|		5		|				10.08			|			0.02			|		0		|
+|		6		|				10.08			|			0.02			|		0		|
+|		7		|				10.07			|			0.02			|		0		|
+|		8		|				10.02			|			0.02			|		0		|
+|		9		|				10.06			|			0.01			|		0		|
+|		10		|				10.06			|			0.01			|		0		|
+
+**Prueba de rendimiento a la granja web (usando haproxy)**
+
+*siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
+
+| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
+|				|		(segundos)			|							|				|
+|:---------:|:---------------------:|:------------------:|:---------:|
+|		1		|			10.07				|			0.01			|		0		|
+|		2		|			10.09				|			0.02			|		0		|
+|		3		|			10.1				|		   0.02			|		0		|
+|		4		|			10.06				|			0.02			|		0		|
+|		5		|			10.12				|			0.01			|		0		|
+|		6		|			10.09				|			0.02  		|		0		|
+|		7		|			10.09				|			0.02			|		0		|
+|		8		|			10.08 			|			0.02			|		0		|
+|		9		|			10.08				|			0.02			|		0		|
+|		10		|			10.05				|			0.02			|		0		|
+
+![Captura Media Tiempo transcurrido](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-mediatiempotrans.png)
+![Captura Desviación Tiempo transcurrido](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-desviaciontiempotrans.png)
+
+![Captura Media Tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-mediatiempores.png)
+![Captura Desviación Tiempo respuesta](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-desviaciontiempotrans.png)
