@@ -36,18 +36,18 @@ final. Además, realizaremos las peticiones concurrentemente de 100 en 100.
 ab -n 100000 -c 100 http://192.168.54.130/index.html
 
 
-|	Test		| Duración de la prueba |Solicitudes fallidas|Solicitudes por segundo| 
+|	  Test		| Duración de la prueba |Solicitudes fallidas|Solicitudes por segundo| 
 |:---------:|:---------------------:|:------------------:|:---------------------:|
-|		1	   |		78.865				|			0				|			1267.99			|
-|		2		|  	80.49					|			0				|			1243.02			|
-|		3		|  	80.344				|			0				|			1244.65			|
-|		4		|  	80.484				|			0				|			1242.49			|
-|		5		|		80.709				|			0				|			1239.02			|
-|		6		|		80.237				|			0				|			1246.31			|
-|		7		|		81.1					|			0				|			1233.05			|
-|		8		|		81.149				|			0				|			1232.3			|
-|		9		|		81.835				|			0				|			1221.98			|
-|		10		|		80.502				|			0				|			1242.2			|
+|		1	      |	  	78.865			    	|	  		0			       | 		  	1267.99    		 |
+|		2		    |  	  80.49			    		|		  	0		    		 |	  		1243.02			   |
+|		3		    |  	  80.344	  	  		|			  0	    			 |		  	1244.65			   |
+|		4		    |  	  80.484  			  	|			  0	    			 |			  1242.49			   |
+|		5		    |		  80.709			  	  |	  		0		    		 |	  		1239.02			   |
+|		6		    |		  80.237			  	  |		  	0			    	 |	  		1246.31			   |
+|		7		    |		  81.1				     	|		  	0		    		 |			  1233.05			   |
+|		8		    |		  81.149		    		|		  	0		    		 |			  1232.3			   |
+|		9		    |		  81.835	  	  		|		  	0		    		 |		  	1221.98			   |
+|		10		  | 		80.502  		  		|		  	0   				 |	  		1242.2			   |
 
 
 
@@ -56,35 +56,35 @@ ab -n 100000 -c 100 http://192.168.54.130/index.html
 ab -n 100000 -c 100 http://192.168.54.135/index.html
 
 
-|	Test		| Duración de la prueba	|Solicitudes fallidas|Solicitudes por segundo| 
+|	Test	  	| Duración de la prueba	|Solicitudes fallidas|Solicitudes por segundo| 
 |:---------:|:---------------------:|:------------------:|:---------------------:|
-|		1	   |			125.950			|			0				|			793.97			|
-|		2		|  		127.025			|			0				|			787.25			|
-|		3		|  		122.191			|			0				|			819.39			|
-|		4		|  		128.810			|			0				|			776.34			|
-|		5		|			162.339			|			0				|			615.99			|
-|		6		|			132.429			|			0				|			755.12			|
-|		7		|			130.668			|			0				|			765.3				|
-|		8		|			128.075			|			0				|			780.79			|
-|		9		|			124.996			|			0				|			800.03			|
-|		10		|			125.308			|			0				|			798.03			|
+|		1	      |	  		125.950   			|		  	0     			 |	  		793.97     		 | 
+|		2		    |    		127.025		    	|		  	0				     |	  		787.25		   	 |
+|		3		    |    		122.191			    |		  	0				     |	  		819.39			   |
+|		4		    |    		128.810			    |		  	0				     |	  		776.34			   |
+|		5		    |	  		162.339			    |		  	0				     |	  		615.99			   |
+|		6		    |	  		132.429			    |		  	0				     |	  		755.12			   |
+|		7		    |	  		130.668			    |		  	0				     |	  		765.3				   |
+|		8		    |	  		128.075			    |		  	0				     |	  		780.79			   |
+|		9		    |		  	124.996			    |		  	0				     |	  		800.03			   |
+|		10		  |			  125.308			    |	  		0				     |	  		798.03			   |
 
 **Prueba de rendimiento a la granja web (con el balanceador haproxy):**
 
 ab -n 100000 -c 100 http://192.168.54.135/index.html
 
-|	Test		| Duración de la prueba	|Solicitudes fallidas|Solicitudes por segundo|
+|	Test		  | Duración de la prueba	|Solicitudes fallidas|Solicitudes por segundo|
 |:---------:|:---------------------:|:------------------:|:---------------------:|
-|		1	   |		105.243				|			0				|			950.18			|
-|		2		|  	106.49				|			0				|			939.06			|
-|		3		|  	109.284				|			0				|			915.05			|
-|		4		|  	102.104				|			0				|			979.39			|
-|		5		|		99.809				|			0				|			1001.91			|
-|		6		|		100.484				|			0				|			995.19			|
-|		7		|		100.856				|			0				|			991.51			|
-|		8		|		102.45				|			0				|			976.09			|
-|		9		|		101.141				|			0				|			988.72			|
-|		10		|		104.339				|			0				|			958.42			|
+|		1	      |	    	105.243 				|	  		0      			 |	  		950.18  			 | 
+|		2		    |     	106.49	  			|	  		0				     |	  		939.06			   |
+|		3		    |  	    109.284		  		|	  		0				     |	  		915.05			   |
+|		4		    |  	    102.104			  	|	  		0				     |	  		979.39			   |
+|		5		    |		    99.809				  |	  		0				     |	  		1001.91			   |
+|		6		    |	    	100.484   			|	  		0				     |	  		995.19			   |
+|		7		    |		    100.856		  		|	  		0				     |	  		991.51			   |
+|		8		    |	    	102.45			  	|	  		0				     |	  		976.09			   |
+|		9		    |	    	101.141				  |	  		0				     |	  		988.72			   |
+|		10		  |   		104.339		  		|	  		0				     |  			958.42			   |
 
 ![Captura Media Duración Prueba](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/AB-media-tiempo.png)
 ![Captura Desviación Duración Prueba](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/AB-desviacion-duracionprueba.png)
@@ -118,19 +118,19 @@ que el cliente esperará al servidor. Si este tiempo se cumple, httperf nos lanz
 *httperf --server 192.168.54.130 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 
-|	Test		|	Duración de la prueba |		Total errores  |    	Tasa solicitud		|	
-|				|			(segundos)	    |				      	|				 				|
+|	Test		  |	Duración de la prueba  |		Total errores  |    	Tasa solicitud	 |	
+|				    |			(segundos)	       |				           |				        			 |
 |:---------:|:----------------------:|:-----------------:|:---------------------:|
-|		1	   |			100.024		    |			0				|			999.8				|
-|		2		|  		100.01			 |			0				|			999.9				|
-|		3		|  		100.045			 |			0				|			999.5				|	
-|		4		|  		100.012			 |			0				|			999.9				|	
-|		5		|			100.011			 |			0				|			999.9				|
-|		6		|			100.011			 |			0				|			999.9				|	
-|		7		|			100.016			 |			0				|			999.8				|
-|		8		|			100.022			 |			0				|			999.8				|
-|		9		|			100.013			 |			0				|			999.9				|
-|		10		|			100.012			 |			0				|			999.9				|
+|		1	      |	  		100.024	     	   |		  	0			     |			  999.8				   |
+|		2		    |    		100.01		    	 |	   		0			     |		  	999.9				   |
+|		3		    |   		100.045		    	 |	  		0				   |		  	999.5				   |	
+|		4		    |   		100.012		    	 |		  	0				   |		  	999.9				   |	
+|		5		    | 			100.011		    	 |	  		0				   |		  	999.9				   |
+|		6	    	| 			100.011		    	 |	  		0				   |		  	999.9				   |	
+|		7	    	| 			100.016	    		 |	  		0				   |		  	999.8				   |
+|		8	    	| 			100.022	    		 |	  		0				   |		  	999.8				   |
+|		9	    	| 			100.013	    		 |	  		0				   |		  	999.9				   |
+|		10	  	| 			100.012	    		 |	  		0				   |	  		999.9				   |
 
 
 **Prueba de rendimiento a la granaja web (usando balanceador nginx)**
@@ -138,38 +138,38 @@ que el cliente esperará al servidor. Si este tiempo se cumple, httperf nos lanz
 *httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
 
-|	Test		|	Duración de la prueba |		Total errores  |	   Tasa solicitud		|	
-|				|			(segundos)	    |				      	|				 				|
+|	Test		  |	Duración de la prueba  |		Total errores  |	   Tasa solicitud		 |	
+|				    |			(segundos)	       |				      	   |				 				       |
 |:---------:|:----------------------:|:-----------------:|:---------------------:|
-|		1	   |			104.16		    |			3219			|			655.3				|
-|		2		|  		104.88			 |			3649			|			610.6				|
-|		3		|  		105.033			 |			3660			|			608.3				|	
-|		4		|  		104.594			 |		   3733			|			604.2				|	
-|		5		|			104.542			 |			3437			|			632.7				|
-|		6		|			105.039			 |			2957			|			676.7				|	
-|		7		|			104.615			 |			3225			|			651.9				|
-|		8		|			104.756			 |			3021			|			669.6				|
-|		9		|			104.578			 |			2657			|			704.2				|
-|		10		|			104.228			 |			3506			|			628.2				|
+|		1	      |	  		104.16		       |	  		3219			 |			655.3			    	 |
+|		2		    |    		104.88			     |	  		3649			 |			610.6		    		 |
+|		3		    |    		105.033		    	 |		  	3660			 |			608.3				     |	
+|		4		    |    		104.594			     |		    3733			 |			604.2				     |   	
+|		5		    |	  		104.542		    	 |	  		3437			 |			632.7			    	 |
+|		6		    |	  		105.039	    		 |	  		2957			 |			676.7				     |	
+|		7	    	|	  		104.615		    	 |  			3225			 |			651.9				     |
+|		8		    |	  		104.756		    	 |  			3021			 |			669.6			    	 |
+|		9		    |	  		104.578		    	 |	  		2657			 |			704.2				     |
+|		10	  	|	  		104.228			     |  			3506			 |			628.2				     | 
 
 
 **Prueba de rendimiento a la granja web (usando balanceador haproxy)**
 
 *httperf --server 192.168.54.135 --port 80 --uri /index.html --rate 100 --num-conn 10000 --num-call 100 --timeout 5*
 
-|	Test		|	Duración de la prueba |		Total errores 	|	   Tasa solicitud		|	
-|				|			(segundos)	    |				      	|				 				|
+|	Test		  |	Duración de la prueba  |		Total errores  |	   Tasa solicitud		 |	
+|				    |			(segundos)  	     |				      	   |				 				       |
 |:---------:|:----------------------:|:-----------------:|:---------------------:|
-|		1	   |			100.054	       |			0				|			999.5				|
-|		2		|  		100.076			 |			0				|			999.2				|
-|		3		|  		100.065			 |			0				|			999.3				|	
-|		4		|  		100.059			 |		   0				|			999.4				|	
-|		5		|			100.043			 |			0				|			999.6				|
-|		6		|			100.046			 |			0				|			999.5				|	
-|		7		|			100.08			 |			0				|			999.2				|
-|		8		|			100.112			 |			0				|			998.9				|
-|		9		|			100.024			 |			0				|			999.8				|
-|		10		|			100.024			 |			0				|			999.5				|
+|		1	      |	  		100.054	         |	  		0			  	 |		  	999.5		   		 |
+|		2		    |    		100.076			     |	  		0				   |	  		999.2		  		 |
+|		3		    |       100.065			     |	  		0			   	 |	  		999.3		  		 |	
+|		4		    |    		100.059			     |		    0				   |	  		999.4		  		 |	
+|		5		    |	  		100.043			     |	  		0				   |	  		999.6			  	 |
+|		6		    |	  		100.046			     |	  		0				   |	  		999.5				   |	
+|		7		    |	  		100.08			     |	  		0				   |	  		999.2				   |
+|		8		    |	  		100.112			     |	  		0				   |	  		998.9			  	 |
+|		9		    |	  		100.024			     |	  		0				   |	  		999.8		  		 |
+|		10		  | 			100.024			     |		  	0				   |	  		999.5	  			 |
 
 
 ![Captura Media Duración Prueba](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/HTTP-mediaduracionprueba.png)
@@ -202,56 +202,56 @@ El número de clientes que se simularán, en nuestro caso, 10 clientes.
 
 *openload 192.168.54.130/index.html 10*
 
-| Test		| Peticiones completadas|Promedio tiempo resp|
-|				|		(segundos)			|							|
+| Test		  | Peticiones completadas|Promedio tiempo resp|
+|				    |		(segundos)    			|							       |  
 |:---------:|:---------------------:|:------------------:|
-|		1		|			1152.04			|		0.008				|
-|		2		|			1164.86			|		0.008				|
-|		3		|			1184.03			|		0.008				|
-|		4		|			1117.95			|		0.008				|
-|		5		|			1207.57			|		0.008				|
-|		6		|			1196.88			|		0.008				|
-|		7		|			1217.54			|		0.008				|
-|		8		|			1204.75			|		0.008				|
-|		9		|			1147.63			|		0.009				|
-|		10		|			1141.5			|		0.008				|
+|		1		    | 			1152.04	    		|	    	0.008				 |
+|		2		    | 			1164.86	    		|	    	0.008				 |
+|		3		    | 			1184.03		    	|	    	0.008				 |
+|		4		    | 			1117.95		    	|	    	0.008				 |
+|		5		    | 			1207.57	    		|	    	0.008				 |
+|		6		    | 			1196.88   			|	    	0.008				 |
+|		7		    | 			1217.54   			|	    	0.008				 |
+|		8		    | 			1204.75	    		|	    	0.008				 |
+|		9		    | 			1147.63	    		| 	  	0.009				 |
+|		10		  | 			1141.5	    		| 	  	0.008				 |
 
 
 **Prueba de rendimiento a la granja web (con el balanceador nginx):**
 
 *openload 192.168.54.135/index.html 10*
 
-| Test		| Peticiones completadas|Promedio tiempo resp|
-|				|		(segundos)			|							|
+| Test		  | Peticiones completadas|Promedio tiempo resp|
+|			    	|		(segundos)    			|				  		     	 |
 |:---------:|:---------------------:|:------------------:|
-|		1		|			496.45			|		0.002				|
-|		2		|			213.34			|		0.046				|
-|		3		|			399.35			|		0.024				|
-|		4		|			380.34			|		0.025				|
-|		5		|			348.52			|		0.028				|
-|		6		|			379.72			|		0.026				|
-|		7		|			489.78			|		0.02				|
-|		8		|			515.63			|		0.019				|
-|		9		|			537.83			|		0.018				|
-|		10		|			541.38			|		0.018				|
+|		1	    	|	  		496.45		    	|	    	0.002				 |
+|		2	    	|	  		213.34	    		|	    	0.046				 |
+|		3	    	| 			399.35	    		|	    	0.024				 |
+|		4	    	| 			380.34	    		|		    0.025				 |
+|		5	    	| 			348.52	    		|	    	0.028				 |
+|		6	    	| 			379.72		    	|	    	0.026				 |
+|		7   		| 			489.78	    		|		    0.02				 |
+|		8	    	| 			515.63    			|	    	0.019				 |
+|		9		    | 			537.83	    		|	    	0.018				 |
+|		10		  | 			541.38		    	|   		0.018				 |
 
 **Prueba de rendimiento a la granja web (con el balanceador haproxy):**
 
 *openload 192.168.54.135/index.html 10*
 
-| Test		| Peticiones completadas|Promedio tiempo resp|
-|				|		(segundos)			|							|
+| Test		  | Peticiones completadas|Promedio tiempo resp|
+|				    |		(segundos)			    |							       |
 |:---------:|:---------------------:|:------------------:|
-|		1		|			413.67			|		0.023				|
-|		2		|			556.01			|		0.017				|
-|		3		|			563.96			|		0.018				|
-|		4		|			529.63			|		0.019				|
-|		5		|			538.69			|		0.018				|
-|		6		|			372.91			|		0.026				|
-|		7		|			540.48			|		0.018				|
-|		8		|			566.91			|		0.017				|
-|		9		|			576.54			|		0.017				|
-|		10		|			285.92			|		0.035				|
+|		1		    |	  		413.67	    		|	    	0.023				 |
+|		2		    |	  		556.01    			|	     	0.017				 |
+|		3		    |	  		563.96	    		|	   	  0.018				 |
+|		4		    |	  		529.63	    		|	  	  0.019				 |
+|		5		    |	  		538.69	    		|	  	  0.018				 |
+|		6	    	|	  		372.91	    		|	  	  0.026				 |
+|		7	    	|	  		540.48	    		|	  	  0.018				 |
+|		8	    	|	  		566.91	    		|	  	  0.017				 |
+|		9	    	|	  		576.54		    	|	  	  0.017				 | 
+|		10	  	|	  		285.92		    	| 		  0.035				 |
 
 ![Captura Media peticiones completadas](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-mediatotaltps.png)
 ![Captura Desviación peticiones completadas](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/OPEN-desviaciontotaltps.png)
@@ -285,56 +285,56 @@ v: indicamos que queremos que nos muestre por pantalla cada petición.
 
 *siege -c100 -d10 -r1 -v http://192.168.54.130/index.html*
 
-| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
-|				|		(segundos)			|							|				|
+| Test  		| Tiempo transcurrido 	| Tiempo respuesta 	 | Errores	 |
+|			 	    |		(segundos)    			|     						 	 |	   			 |
 |:---------:|:---------------------:|:------------------:|:---------:|
-|		1		|				10.08			|			0.01			|		0		|
-|		2		|				10.08			|			0.01			|		0		|
-|		3		|				10.06			|			0.01			|		0		|
-|		4		|				10.09			|			0.01			|		0		|
-|		5		|				10.07			|			0.01			|		0		|
-|		6		|				10.05			|			0.01			|		0		|
-|		7		|				10.08			|			0.01			|		0		|
-|		8		|				10.08			|			0.01			|		0		|
-|		9		|				10.07			|			0.01			|		0		|
-|		10		|				10.07			|			0.01			|		0		|
+|		  1		  |				  10.08		    	|	  		0.01	  		 |	 	0	  	 | 
+|		  2 		|			  	10.08		    	|	  		0.01	  		 | 		0		   |
+|		  3 		|		  		10.06		    	|	  		0.01	  		 |		0	  	 |
+|		  4	  	|		  		10.09		    	|	  		0.01	  		 |		0		   |
+|		  5	  	|			  	10.07	  	  	|	  		0.01	  		 |		0		   |
+|		  6	  	|			  	10.05		    	|	  		0.01	  		 |		0		   |
+|		  7	  	|			  	10.08		    	|	  		0.01	  		 |		0		   |
+|		  8	  	|			  	10.08		    	|	  		0.01	  		 |		0		   |
+|		  9	  	|			  	10.07		    	|	  		0.01	  		 |		0		   |
+|		  10		|			  	10.07   			|	  		0.01  			 |		0		   |
 
 
 **Prueba de rendimiento a la granja web (usando nginx)**
 
 *siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
 
-| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
-|				|		(segundos)			|							|				|
+| Test		  | Tiempo transcurrid  	| Tiempo respuesta 	 | Errores	 |
+|			    	|		(segundos)	    		|	        					 |		   		 |
 |:---------:|:---------------------:|:------------------:|:---------:|
-|		1		|				10.09			|			0.02			|		0		|	
-|		2		|				10.1			|			0.02			|		0		|
-|		3		|				10.09			|			0.02			|		0		|
-|		4		|				10.08			|			0.02			|		0		|
-|		5		|				10.08			|			0.02			|		0		|
-|		6		|				10.08			|			0.02			|		0		|
-|		7		|				10.07			|			0.02			|		0		|
-|		8		|				10.02			|			0.02			|		0		|
-|		9		|				10.06			|			0.01			|		0		|
-|		10		|				10.06			|			0.01			|		0		|
+|		1   		|		  		10.09   			| 			0.02  			 |	  	0 	 |	
+|		2   		|	  			10.1	    		| 			0.02	  		 |	  	0	   |
+|		3   		|	  			10.09	    		| 			0.02			   |	  	0		 |
+|		4	    	|	  			10.08	    		| 			0.02			   |	  	0		 |
+|		5	    	|	  			10.08	    		| 			0.02			   |	  	0		 |
+|		6   		|	  			10.08	    		| 			0.02			   |	  	0		 |
+|		7   		|	  			10.07		    	| 			0.02			   |	  	0		 |
+|		8   		|		  		10.02	    		| 			0.02			   |		  0		 |
+|		9	    	|			  	10.06	    		| 			0.01			   |	  	0		 |
+|		10		  |				  10.06   			| 			0.01			   |  		0		 |
 
 **Prueba de rendimiento a la granja web (usando haproxy)**
 
 *siege -c100 -d10 -r1 -v http://192.168.54.135/index.html
 
-| Test		| Tiempo transcurrido	| Tiempo respuesta 	| Errores	|
-|				|		(segundos)			|							|				|
-|:---------:|:---------------------:|:------------------:|:---------:|
-|		1		|			10.07				|			0.01			|		0		|
-|		2		|			10.09				|			0.02			|		0		|
-|		3		|			10.1				|		   0.02			|		0		|
-|		4		|			10.06				|			0.02			|		0		|
-|		5		|			10.12				|			0.01			|		0		|
-|		6		|			10.09				|			0.02  		|		0		|
-|		7		|			10.09				|			0.02			|		0		|
-|		8		|			10.08 			|			0.02			|		0		|
-|		9		|			10.08				|			0.02			|		0		|
-|		10		|			10.05				|			0.02			|		0		|
+| Test	  	| Tiempo transcurrido	  | Tiempo respuesta 	| Errores	  |
+|			    	|		(segundos)  			  |							      |		  		  |
+|:---------:|:---------------------:|:-----------------:|:---------:|
+|		1	    	|	  		10.07   				|			0.01    			| 		0 		|
+|		2	    	|	  		10.09		    		|			0.02	    		| 		0	  	|
+|		3	    	|	  		10.1				    |		  0.02		    	| 		0		  |
+|		4		    |	  		10.06		    		|			0.02	    		| 		0 		| 
+|		5	    	|	  		10.12		    		|			0.01		    	| 		0 		|
+|		6	    	|	  		10.09		    		|			0.02      		|		  0 		|
+|		7	    	|	  		10.09	    			|			0.02    			|		  0 		|
+|		8	    	|	  		10.08     			|			0.02	    		|		  0 		|
+|		9	    	|	  		10.08	    			|			0.02		    	|	  	0 		|
+|		10	  	|	  		10.05		    		|			0.02	    		| 		0 		|
 
 ![Captura Media Tiempo transcurrido](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-mediatiempotrans.png)
 ![Captura Desviación Tiempo transcurrido](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%204/imagenes/SI-desviaciontiempotrans.png)
