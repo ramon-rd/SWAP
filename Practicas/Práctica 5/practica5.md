@@ -81,5 +81,11 @@ De este modo, tenemos configurado nuestro servicio maestro esclavo y podremos re
 
 Si la línea Second_Behind_Master tiene el valor 0, quiere decir que todo ha ido bien. Podemos comprobar esto último en la siguiente captura de pantalla:
 
+![Captura todo OK](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%205/imagenes/5.15.png)
+
 En la siguiente captura podemos ver que modificamos la base de datos de la máquina 1 y, automáticamente se actualiza la base de datos de la máquina 2:
+
+![Captura insertar maestro](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%205/imagenes/5.16.png)
+
+![Captura comprobacion esclavo](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%205/imagenes/5.17.png)
  

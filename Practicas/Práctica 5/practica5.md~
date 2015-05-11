@@ -47,7 +47,7 @@ Por último, en la siguiente captura de pantalla podemos comprobar que todo ha s
 
 ##Replicación de BD mediante una configuración maestro-esclavo
 
-Utilizando lo anteriormente descrito todo funciona correctamente, pero hay que hacerlo manualmente. Lo interesante sería conseguir hacer este proceso automáticamente, para ello vamos a hacer una configuración maestro esclavo en nuestra base de datos.
+Utilizando lo anteriormente descrito, todo funciona correctamente, pero hay que hacerlo manualmente. Lo interesante sería conseguir hacer este proceso automáticamente, para ello vamos a hacer una configuración maestro esclavo en nuestra base de datos de MySQL.
 
 Para comenzar con la configuración maestro-esclavo, nos dirigimos primero a la máquina 1 (que será el maestro), abrimos el fichero *my.conf* que se encuentra en */etc/mysql* y comentamos la siguiente línea:
 
@@ -71,15 +71,15 @@ Ahora, nos dirigimos a la máquina 1 (maestro) y creamos el usuario esclavo y le
 
 ![Captura creacion user esclavo](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%205/imagenes/5.13.png)
 
-Por último, nos dirigimos a la máquina 2 (esclavo) y configuramos quien "va a ser su maestro", para ello:
+Por último, nos dirigimos a la máquina 2 (esclavo) y configuramos quién "va a ser su maestro", para ello:
 
 ![Captura modificacion maestro](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%205/imagenes/5.14.png)
 
-De este modo, tenemos configurado nuestro servicio maestro cliente y podremos realizar copias automáticamente de la base de datos de la máquina 1 a la máquina 2. Si todo ha ido bien, escribiendo en la máquina 2 la siguiente orden:
+De este modo, tenemos configurado nuestro servicio maestro esclavo y podremos realizar copias automáticamente de la base de datos de la máquina 1 a la máquina 2. Si todo ha ido bien, escribiendo en la máquina 2 la siguiente orden:
 
 *show slave status\G*
 
 Si la línea Second_Behind_Master tiene el valor 0, quiere decir que todo ha ido bien. Podemos comprobar esto último en la siguiente captura de pantalla:
 
-En la siguiente captura podemos ver como modificamos la base de datos de la máquina 1 y, automáticamente se actualiza la base de datos de la máquina 2:
+En la siguiente captura podemos ver que modificamos la base de datos de la máquina 1 y, automáticamente se actualiza la base de datos de la máquina 2:
  
