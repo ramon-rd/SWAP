@@ -1,0 +1,75 @@
+							CUESTIONES A RESOLVER
+							======================
+							
+1.- Probar el funcionamiento de la copia de archivos por ssh.
+
+	 Para comprobar el correcto funcionamiento de la copia de archivos de un 
+	 servidor a otro a través del comando ssh, se ha realizado lo siguiente:
+	 
+	 tar czf - directorio | ssh 192.168.54.131 'cat > ~/tar.tgz'
+	 
+	 Directorio, indica que queremos comprimir para enviar por ssh. En nuestro
+	 caso, lo que queremos enviar es la carpeta www, por lo que hacemos lo siguiente:
+	 
+	 tar czf - www | ssh 192.168.54.131 'cat > ~/tar.tgz'
+
+2.- Clonado de una carpeta entre las dos máquinas.
+
+	 Para clonar carpetas entre servidores, lo más conveniente es usar la herramienta rsync. 
+	 La forma de realizar una copia del directorio /var/www de la máquina 1 en la máquina 2, es
+	 el siguiente:
+	 
+	 Nos situamos en la máquina 2 y ejecutamos la siguiente orden:
+	 
+	 rsync -avz -e ssh ramon@192.168.54.130:/var/www /var/
+	 
+	 Es conveniente activar la cuenta de root para trabajar con todos los permisos, para ello:
+	 
+	 	sudo passwd root
+	 
+	 En mi caso, no he conseguido realizar la copia con el usuario root, por lo que la forma
+	 de solucionar este problema ha sido hacer mi usuario 'ramon' como propietario de dicho 
+	 directorio (/var/www) de este modo, este usuario tenía todos los permisos necesarios. 
+	 Para cambiar el propietario de un directorio, debemos ejecutar la siguiente orden:
+	 
+	 Nos dirigimos al directorio:
+	 
+	 cd /var/www
+	 
+	 Y ejecutamos:
+	 
+	 sudo chown ramon:ramon -R .
+
+3.- Configuración de ssh para acceder sin que solicite contraseña.
+
+	 Para acceder por ssh a otra máquina sin tener que escribir la contraseña, debemos usar
+	 autentificación con un par de claves pública-privada. Para ello, en la máquina 2 hacemos:
+	 
+	 ssh-keygen -t dsa
+	 
+	 Y copiamos la clave en la máquina 1, para que ésta nos permita el acceso por ssh sin que 
+	 nos solicite la contraseña:
+	 
+	 ssh-copy-id -i .ssh/id_dsa.pub ramon@192.168.54.130
+
+
+4.- Establecer una tarea en cron que se ejecute cada hora para mantener
+	 actualizado el contenido del directorio /var/www entre las dos máquinas.
+	 
+	 Para mantener actualizado el contenido del directorio /var/www entre las dos 
+	 máquinas de forma periódica, nos dirigimos al fichero crontab de la máquina 2,
+	 y añadimos la siguiente línea:
+	 
+	 Abrimos el fichero crontab:
+	 
+	 sudo nano /etc/crontab
+	 
+	 Y añadimos:
+	 
+	 0 *  * * * ramon rsync -avz -e ssh ramon@192.168.54.130:/var/www /var/
+	 
+	 De este modo, se realiza una copia del directorio /var/www de la máquina 1 al directorio
+	 /var/ de la máquina 2, cada hora. En mi caso, el usuario que tiene permisos para ejecutar
+	 este comando, es el usuario ramon, en lugar del usuario root.
+	 
+	 
