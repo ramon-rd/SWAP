@@ -68,7 +68,7 @@ Una vez realizada esta configuración, reiniciamos la máquina virtual y comprob
 
 ![Comprobacion final](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%206/imagenes/p6-13.png)
 
-#PARTE OPTATIVA: SIMULAR EL FALLO EN UNO DE LOS DISCOS RAID
+##PARTE OPTATIVA: SIMULAR EL FALLO EN UNO DE LOS DISCOS RAID
 
 Para simular un fallo en uno de los discos RAID, volvemos a hacer uso de la herramienta **mdadm**. Con la opción *--failure* podemos simular un fallo en uno de los discos:
 
@@ -82,6 +82,6 @@ Como se puede apreciar en la captura anterior, hemos conseguido eliminar el disc
 
 ![Insertar disco](https://github.com/ramon-rd/SWAP/blob/master/Practicas/Pr%C3%A1ctica%206/imagenes/p6-16.png)
 
-##BIBLIOGRAFIA
+##BIBLIOGRAFÍA
 
 http://avdeo.com/2008/09/19/simulating-the-raid-failure/
